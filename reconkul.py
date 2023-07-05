@@ -11,15 +11,17 @@ def is_root_user():
 
 def main():
     art = """
-                           /
-                          /
-o--o   o--o   o--o   o--o/  o   o   o   o  o / /o  o
-|   |  |     |      |   /|  |\  |   |  /   |    |  |
-o--o   o--o  o      o  / o  o \ o   o-o    o    o  o
-|   \  |     |      | /  |  |  \|   |  \   |    |  |    
-o    o o--o   o--o   o--o   o   o   o   o   o--o   o---o
-                    /
-                   /
+==========================================================================
+                                     /
+                                    /
+          o--o   o--o   o--o   o--o/  o   o   o   o  o / /o  o
+          |   |  |     |      |   /|  |\  |   |  /   |    |  |
+          o--o   o--o  o      o  / o  o \ o   o-o    o    o  o
+          |   \  |     |      | /  |  |  \|   |  \   |    |  |    
+          o    o o--o   o--o   o--o   o   o   o   o   o--o   o---o
+                              /
+                             /            {v1.0.4/Apha}                    
+==========================================================================
 """
     while True:
         print(art)
@@ -35,20 +37,24 @@ o    o o--o   o--o   o--o   o   o   o   o   o--o   o---o
 
         if choice == "1":
             host = input("set the host or IP -> ")
-            exec_nmap(f"-F {host}")  
+            tt = input("what choice timing template? [0...5] -> ")
+            exec_nmap(f"-T{tt} -F {host}")  
 
         elif choice == "2":
             host = input("set the host or IP -> ")
-            exec_nmap(f"-A {host}")
+            tt = input("what choice timing template? [0...5] -> ")
+            exec_nmap(f"-T{tt} -A {host}")
         elif choice == "3":
             host = input("set the host or IP -> ")
             ports = input("set ports -> ")
-            exec_nmap(f"-p {ports} {host}")  
+            tt = input("what choice timing template? [0...5] -> ")
+            exec_nmap(f"-T{tt} -p {ports} {host}")  
         elif choice == "4":
             if is_root_user():
                 host = input("set the host or IP -> ")
                 ports = input("set ports -> ")
-                exec_nmap(f"-p {ports} {host}") 
+                tt = input("what choice timing template? [0...5] -> ")
+                exec_nmap(f"-T{tt} -p {ports} -sS {host}") 
             else:
                 print("SYN scan need root permission. try sudo")
                 break
@@ -56,7 +62,8 @@ o    o o--o   o--o   o--o   o   o   o   o   o--o   o---o
             if is_root_user():
               host = input("set the host or IP -> ")
               ports = input("set ports -> ")
-              exec_nmap(f"-p {ports} -sSV --script vuln {host}")
+              tt = input("what choice timing template? [0...5] -> ")
+              exec_nmap(f"T{tt} -p {ports} -sSV --script vuln {host}")
             else:
                 print("Vuln scan need root permission. try sudo")
                 break
