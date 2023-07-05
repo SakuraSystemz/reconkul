@@ -16,7 +16,7 @@ def main():
 o--o   o--o   o--o   o--o/  o   o   o   o  o / /o  o
 |   |  |     |      |   /|  |\  |   |  /   |    |  |
 o--o   o--o  o      o  / o  o \ o   o-o    o    o  o
-|   \  |     |      | /  |  |  \|   |  \   |    |  |    /
+|   \  |     |      | /  |  |  \|   |  \   |    |  |    
 o    o o--o   o--o   o--o   o   o   o   o   o--o   o---o
                     /
                    /
